@@ -1,0 +1,52 @@
+﻿<Window x:Class="WPFAppPrueba.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFAppPrueba"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" 
+
+                Name="dockPanel1" VerticalAlignment="Stretch">
+
+
+            <!--modulo arriba-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top" Background="#FFD9E1EF" Height="50">
+                
+                <Label x:Name="lbl_horario" FontSize="34">Hora</Label>
+                
+            </StackPanel>
+
+            <!--modulo abajo-->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" 
+
+                     Background="#FFD9E1EF" Height="100">
+                <ContentControl></ContentControl>
+            </StackPanel>
+
+            <!--modulo izquierdo-->
+            <ScrollViewer>
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Left" MinWidth="150" MaxWidth="200" Background="#FF677BA7">
+                    <Label x:Name="lbl_temp_ext" FontSize="28">Externa: 30 C°</Label>
+
+                    <Label x:Name="lbl_temp_int" FontSize="26">Interna: 23 C°</Label>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!--modulo derecho-->
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Background="#FF677BA7" Width="150">
+                <ContentControl></ContentControl>
+            </StackPanel>
+
+            <!--modulo central-->
+            <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFC0DBF2">
+                    <Label x:Name="lbl_camaras" FontSize="36">Camaras de seguridad</Label>
+                </StackPanel>
+            </ScrollViewer>
+           
+        </DockPanel>
+    </Grid>
+</Window>
