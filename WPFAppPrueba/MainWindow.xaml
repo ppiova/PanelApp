@@ -28,22 +28,28 @@
 
             <!--modulo izquierdo-->
             <ScrollViewer>
-                <StackPanel Orientation="Vertical" DockPanel.Dock="Left" MinWidth="150" MaxWidth="200" Background="#FF677BA7">
-                    <Label x:Name="lbl_temp_ext" FontSize="28">Externa: 30 C°</Label>
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Left" MinWidth="150" MaxWidth="220" Background="#FF677BA7">
+                    <Label FontSize="26">Exterior</Label>
+                    
+                    <Label x:Name="lbl_temp_ext" FontSize="24">Temperatura: 30 C°</Label>
 
-                    <Label x:Name="lbl_temp_int" FontSize="26">Interna: 23 C°</Label>
+                    <Label x:Name="lbl_humedad_ext" FontSize="22">Humedad: 38%</Label>
                 </StackPanel>
             </ScrollViewer>
 
             <!--modulo derecho-->
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Background="#FF677BA7" Width="150">
-                <ContentControl></ContentControl>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Background="#FF677BA7" Width="220">
+                <Label FontSize="26">Interior</Label>
+                
+                <Label x:Name="lbl_temp_int" FontSize="24">Temperatura: 24 C°</Label>
+
+                <Label x:Name="lbl_humedad_int" FontSize="22">Humedad: 30%</Label>
             </StackPanel>
 
             <!--modulo central-->
             <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFC0DBF2">
-                    <Label x:Name="lbl_camaras" FontSize="36">Camaras de seguridad</Label>
+                    <Label x:Name="lbl_camaras" FontSize="32">Camaras de seguridad</Label>
                 </StackPanel>
             </ScrollViewer>
            
