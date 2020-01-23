@@ -24,7 +24,7 @@ namespace WPFAppPrueba
     {
         private string buffer { get; set; }
 
-        private SerialPort serialPort = new SerialPort("COM6", 9600, Parity.None, 8, StopBits.One);
+        private SerialPort serialPort = new SerialPort("COM6", 115200, Parity.None, 8, StopBits.One);
 
         public MainWindow()
         {
@@ -38,7 +38,7 @@ namespace WPFAppPrueba
             });
             _timer.Start();
 
-            serialPort.ReadTimeout = 100; //establezco el tiempo de espera cuando una operación de lectura no finaliza
+            serialPort.ReadTimeout = 1; //establezco el tiempo de espera cuando una operación de lectura no finaliza
             serialPort.Open(); //abro una nueva conexión de puerto serie
 
         }
@@ -87,13 +87,15 @@ namespace WPFAppPrueba
                     if(Convert.ToInt32(datos[4]) == 1)
                     {
                         //se descolgó un teléfono
-                        panelGral.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
-
+                        lbl_hours.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
+                        panelGral.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000")); 
+                        //loopBGColor();
                     }
                     else
                     {
                         //se colgó el telefono
-                        panelGral.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        lbl_hours.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+                        panelGral.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#c5cbe8"));
 
                     }
                 }
@@ -104,7 +106,22 @@ namespace WPFAppPrueba
 
             }
         }
-        
+
+        public void loopBGColor()
+        {
+            //rojo: #ff0000   rojo claro: #ff6262
+            string actual_col = panelGral.Background.ToString().Substring(panelGral.Background.ToString().Length - 4, 4);
+            string next_col = "";
+
+            if (Convert.ToInt32(actual_col) < 6262)
+                next_col = (Convert.ToInt32(actual_col) + 500).ToString();
+            else
+                next_col = (Convert.ToInt32(actual_col) - 500).ToString();
+
+            panelGral.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF"+next_col));
+
+        }
+
         public void updTimer()
         {
             string horas = DateTime.Now.Hour.ToString();
