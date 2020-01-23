@@ -57,8 +57,22 @@ namespace WPFAppPrueba
 
                     string[] datos = actual_line.Split('|');
 
-                    lbl_temp_int.Text = datos[0] + " C°";
-                    lbl_humedad_int.Text = Convert.ToInt32(datos[1]).ToString() + " %";
+                    if(Convert.ToInt32(datos[0]) == 0 && Convert.ToInt32(datos[1]) == 0)
+                    {
+                        lbl_error_01.Text = "Sensor 1 afectado. Controlar";
+                        //si los valores del primer sensor son 0, hay un problema con el mismo (quemado, desconectado, etc)
+                        //se utilizarán los valores de contingencia (sensor 2)
+                        lbl_temp_int.Text = datos[2] + " C°";
+                        lbl_humedad_int.Text = Convert.ToInt32(datos[3]).ToString() + " %";
+                    }
+                    else
+                    {
+                        lbl_error_01.Text = "";
+                        //todo normal
+                        lbl_temp_int.Text = datos[0] + " C°";
+                        lbl_humedad_int.Text = Convert.ToInt32(datos[1]).ToString() + " %";
+                    }
+                    
                 }
                 catch (Exception e)
                 {
