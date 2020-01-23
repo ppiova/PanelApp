@@ -18,10 +18,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-               Margin="10" FontWeight="Bold" 
-               Text="MonitoreApp" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="26" Margin="10" FontWeight="Bold" x:Name="lbl_hours" HorizontalAlignment="Center" VerticalAlignment="Center" />
         
         <Grid x:Name="FormLayoutGridInt" Grid.Row="1" Grid.Column="0" Background="#FFC0DBF2">
             <Grid.ColumnDefinitions>
@@ -32,12 +30,10 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Temperatura interna" Margin="10" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Label Grid.Row="0" Grid.Column="1" Margin="10" >24 C°</Label>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Humedad interna" Margin="10" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Label Grid.Row="1" Grid.Column="1" Margin="10" >35 %</Label>
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="24" Text="Temperatura interna" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" Margin="10" x:Name="lbl_temp_int" />
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="22" Text="Humedad interna" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="22" Margin="10" x:Name="lbl_humedad_int" />
         </Grid>
 
         <Grid x:Name="FormLayoutGridExt" Grid.Row="1" Grid.Column="1" Background="#FF677BA7">
@@ -49,13 +45,10 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Temperatura externa" Margin="10" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Label Grid.Row="0" Grid.Column="1" Margin="10" >38 C°</Label>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Humedad externa" Margin="10" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Label Grid.Row="1" Grid.Column="1" Margin="10" >46 %</Label>
-
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="24" Text="Temperatura externa" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" Margin="10" x:Name="lbl_temp_ext" />
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="22" Text="Humedad externa" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="22" Margin="10" x:Name="lbl_humedad_ext" />
         </Grid>
     </Grid>
 </Window>
