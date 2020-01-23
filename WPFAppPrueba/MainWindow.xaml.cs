@@ -31,27 +31,20 @@ namespace WPFAppPrueba
             InitializeComponent();
 
             var _timer = new DispatcherTimer();
-            // Set the Interval to 2 seconds 
             _timer.Interval = TimeSpan.FromMilliseconds(1000);
-            // Set the callback to just show the time ticking away 
-            // NOTE: We are using a control so this has to run on 
-            // the UI thread 
             _timer.Tick += new EventHandler(delegate (object s, EventArgs a) {
                 updTimer();
+                updArduinoValues();
             });
-            // Start the timer 
             _timer.Start();
-
 
             serialPort.ReadTimeout = 1000; //establezco el tiempo de espera cuando una operación de lectura no finaliza
             serialPort.Open(); //abro una nueva conexión de puerto serie
 
-
-            readArduino();
         }
 
 
-        private void readArduino()
+        private void updArduinoValues()
         {
             if (serialPort.IsOpen) //chequeo que el puerto este abierto
             {
@@ -65,7 +58,7 @@ namespace WPFAppPrueba
                     string[] datos = actual_line.Split('|');
 
                     lbl_temp_int.Text = datos[0] + " C°";
-                    lbl_humedad_int.Text = datos[1] + " %";
+                    lbl_humedad_int.Text = Convert.ToInt32(datos[1]).ToString() + " %";
                 }
                 catch (Exception e)
                 {
