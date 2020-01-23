@@ -31,14 +31,14 @@ namespace WPFAppPrueba
             InitializeComponent();
 
             var _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromMilliseconds(1000);
+            _timer.Interval = TimeSpan.FromMilliseconds(100);
             _timer.Tick += new EventHandler(delegate (object s, EventArgs a) {
                 updTimer();
                 updArduinoValues();
             });
             _timer.Start();
 
-            serialPort.ReadTimeout = 1000; //establezco el tiempo de espera cuando una operación de lectura no finaliza
+            serialPort.ReadTimeout = 100; //establezco el tiempo de espera cuando una operación de lectura no finaliza
             serialPort.Open(); //abro una nueva conexión de puerto serie
 
         }
@@ -72,7 +72,30 @@ namespace WPFAppPrueba
                         lbl_temp_int.Text = datos[0] + " C°";
                         lbl_humedad_int.Text = Convert.ToInt32(datos[1]).ToString() + " %";
                     }
+
+                    if (Convert.ToInt32(datos[2]) == 0 && Convert.ToInt32(datos[3]) == 0)
+                    {
+                        //si los valores del segundo sensor son 0, hay un problema con el mismo (quemado, desconectado, etc)
+                        //se da aviso para cambiarlo, ya que es el sensor de contingencia
+                        if(lbl_error_01.Text.Equals(""))
+                            lbl_error_01.Text = "Sensor 2 afectado. Controlar";
+                        else
+                            lbl_error_01.Text = "Sensor 1 y 2 afectados. Controlar";
+                    }
                     
+
+                    if(Convert.ToInt32(datos[4]) == 1)
+                    {
+                        //se descolgó un teléfono
+                        panelGral.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+
+                    }
+                    else
+                    {
+                        //se colgó el telefono
+                        panelGral.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+                    }
                 }
                 catch (Exception e)
                 {
