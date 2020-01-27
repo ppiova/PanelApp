@@ -38,8 +38,17 @@ namespace WPFAppPrueba
             });
             _timer.Start();
 
-            serialPort.ReadTimeout = 1; //establezco el tiempo de espera cuando una operación de lectura no finaliza
-            serialPort.Open(); //abro una nueva conexión de puerto serie
+            try
+            {
+                serialPort.ReadTimeout = 1; //establezco el tiempo de espera cuando una operación de lectura no finaliza
+                serialPort.Open(); //abro una nueva conexión de puerto serie
+
+                lbl_error_01.Text = "";
+            }
+            catch(Exception e)
+            {
+                lbl_error_01.Text = "Sensores desconectados";
+            }
 
         }
 
