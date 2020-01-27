@@ -4,11 +4,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="736" Width="1303"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#c5cbe8" x:Name="panelGral">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="124" Margin="10" FontWeight="Bold" x:Name="lbl_hours" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        
+
         <Grid x:Name="FormLayoutGridInt" Grid.Row="1" Grid.Column="0" Background="#673ab7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -31,7 +31,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="30" Foreground="Red" x:Name="lbl_error_01" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="30" Foreground="#000000" x:Name="lbl_error_01" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <TextBlock Grid.Row="1" Grid.Column="0" FontSize="44" Foreground="White" Text="Temperatura interna:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="52" Foreground="White" Margin="10" x:Name="lbl_temp_int" />
             <TextBlock Grid.Row="2" Grid.Column="0" FontSize="44" Foreground="White" Text="Humedad interna:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -52,6 +52,34 @@
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="52" Foreground="White" Margin="10" x:Name="lbl_temp_ext" />
             <TextBlock Grid.Row="2" Grid.Column="0" FontSize="44" Foreground="White" Text="Humedad externa:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <TextBlock Grid.Row="2" Grid.Column="1" FontSize="52" Foreground="White" Margin="10" x:Name="lbl_humedad_ext" />
+        </Grid>
+
+        <Grid x:Name="FormLayoutGridIzqAbajo" Grid.Row="2" Grid.Column="0" Background="#9a67ea">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="44" Foreground="White" Text="Otro dato 1" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="44" Foreground="White" Text="Otro dato 2" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid x:Name="FormLayoutGridDerAbajo" Grid.Row="2" Grid.Column="1" Background="#673ab7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="44" Foreground="White" Text="Otro dato 3" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="44" Foreground="White" Text="Otro dato 4" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Grid>
     </Grid>
 </Window>

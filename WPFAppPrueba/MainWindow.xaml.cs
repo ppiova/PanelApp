@@ -88,7 +88,8 @@ namespace WPFAppPrueba
                     {
                         //se descolgó un teléfono
                         lbl_hours.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
-                        panelGral.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000")); 
+                        panelGral.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000"));
+
                         //loopBGColor();
                     }
                     else
